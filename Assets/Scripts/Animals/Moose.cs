@@ -7,19 +7,17 @@ public class Moose : Animal
     private int m_MScore = 6;
     private float m_MooseSpeed = 8;
     
-    // Start is called before the first frame update
     void Start()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
-    // Update is called once per frame
     void Update()
     {  
         ScoreToAdd(m_MScore);
         Speed();
     }
-
+//Override Method
     public override void ScoreToAdd(int ScoreValue)
     {
         base.ScoreToAdd(ScoreValue);

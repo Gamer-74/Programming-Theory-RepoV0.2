@@ -17,7 +17,7 @@ public class Stag : Animal
         ScoreToAdd(m_SScore);
         Speed();
     }
-
+//Override Method
     public override void ScoreToAdd(int ScoreValue)
     {
         base.ScoreToAdd(ScoreValue);

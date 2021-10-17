@@ -25,10 +25,8 @@ public class PlayerController : MonoBehaviour
     private float xRange = 19;
     private float zRange = 8;
     private float zAxis = 0;
-
-    //private int lives = 3;
-    
-    public int health { get { return currentHealth; } }
+    //getter - setter
+    public int health { get;  private set; }
     private int maxHealth = 10;
     private int currentHealth;
     private int dead = 0;
@@ -47,8 +45,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         PlayerMovement();
-        FeedAnimal();
-        
+        FeedAnimal(); 
     }
 
     private void PlayerMovement()
@@ -86,24 +83,22 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Instantiate(projectilePrefab, projectileSpawnPoint.transform.position, projectilePrefab.transform.rotation);
-            
         }
     }
 
-    public void ChangeHealth(int amount)
+    public int ChangeHealth(int amount)
     {
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
         healthBar.SetHealth(currentHealth);
 
         if(currentHealth <= dead)
         {
-            if (isInvincible)
-                return;
             isInvincible = true;
             invincibleTimer = timeInvincible;
             gameManager.isGameActive = false;
             gameManager.GameOver();
             dirtParticle.Stop();
         }
+        return health;
     }
 }
