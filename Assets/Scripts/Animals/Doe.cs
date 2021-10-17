@@ -7,13 +7,11 @@ public class Doe : Animal
     private int m_DScore = 8;
     private float m_DoeSpeed = 7;
     
-    // Start is called before the first frame update
     void Start()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         ScoreToAdd(m_DScore);
@@ -22,7 +20,7 @@ public class Doe : Animal
 
     public override void ScoreToAdd(int ScoreValue)
     {
-        base.ScoreToAdd(ScoreValue);
+        base.ScoreToAdd(ScoreValue);     
         ScoreValue = m_DScore;
     }
 

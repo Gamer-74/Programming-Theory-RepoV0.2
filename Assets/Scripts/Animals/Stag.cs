@@ -33,11 +33,10 @@ public class Stag : Animal
 
     private void OnTriggerEnter(Collider other)
     {
-        PlayerController player = GameObject.Find("Player").GetComponent<PlayerController>();
+       PlayerController player = GameObject.Find("Player").GetComponent<PlayerController>();
         if (other.gameObject.CompareTag("Player"))
         {
-            Destroy(gameObject);
-
+           Destroy(gameObject);
             player.ChangeHealth(-1);
         }
         else if(other.gameObject)

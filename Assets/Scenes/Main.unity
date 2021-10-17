@@ -1190,7 +1190,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 95, y: -31}
+  m_AnchoredPosition: {x: 95, y: -46}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &849549187
@@ -1269,7 +1269,7 @@ GameObject:
   - component: {fileID: 912792550}
   - component: {fileID: 912792549}
   m_Layer: 5
-  m_Name: Score
+  m_Name: NameScore
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1291,8 +1291,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -84, y: -34}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: -700, y: -31}
+  m_SizeDelta: {x: 260.3676, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &912792549
 MonoBehaviour:
@@ -1314,7 +1314,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Score: '
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1323,8 +1323,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4286054656
-  m_fontColor: {r: 0, g: 0.0048066084, b: 0.4716981, a: 1}
+    rgba: 4281992520
+  m_fontColor: {r: 0.2830189, g: 0.020024918, b: 0.22768907, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1538,7 +1538,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animalPrefab:
-  - {fileID: 3718967868185387547, guid: f7821fd1edad53843a1812b427821b3c, type: 3}
+  - {fileID: 7417908929487388847, guid: dbaa843d0c995e4438107ceed3e25be6, type: 3}
   - {fileID: 5091411216659675183, guid: 698e46b3d81c41d47bebee5aa63470a5, type: 3}
   - {fileID: 7417908929487388847, guid: dbaa843d0c995e4438107ceed3e25be6, type: 3}
   gameManager: {fileID: 1054136392}
@@ -1629,7 +1629,6 @@ MonoBehaviour:
   finalScoreText: {fileID: 745087983}
   titleScreen: {fileID: 1311761749}
   restartButton: {fileID: 1125723063}
-  mainMenu: {fileID: 0}
   healthBar: {fileID: 849549187}
   isGameActive: 1
 --- !u!1 &1125723061

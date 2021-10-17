@@ -6,7 +6,7 @@ public class Animal : MonoBehaviour
 {
     public GameManager gameManager;
 
-    private int m_ScoreValue = 30;
+    private int m_ScoreValue;
     private float m_Speed;
 
     // Start is called before the first frame update
@@ -15,7 +15,6 @@ public class Animal : MonoBehaviour
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         Speed();
@@ -32,5 +31,4 @@ public class Animal : MonoBehaviour
     {
         m_ScoreValue = ScoreValue;
     }
-
 }

@@ -6,14 +6,12 @@ public class Moose : Animal
 {
     private int m_MScore = 6;
     private float m_MooseSpeed = 8;
-    
-    // Start is called before the first frame update
+
     void Start()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
-    // Update is called once per frame
     void Update()
     {  
         ScoreToAdd(m_MScore);
@@ -38,14 +36,13 @@ public class Moose : Animal
         PlayerController player = GameObject.Find("Player").GetComponent<PlayerController>();
         if (other.gameObject.CompareTag("Player"))
         {
-            Destroy(gameObject);
-
-            player.ChangeHealth(-1);
+          Destroy(gameObject);
+          player.ChangeHealth(-1);
         }
         else if (other.gameObject)
         {
-            Destroy(gameObject);
-            gameManager.UpdateScore(m_MScore);
+           Destroy(gameObject);
+           gameManager.UpdateScore(m_MScore);
         }
     }
 }

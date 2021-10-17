@@ -8,7 +8,6 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
-    //public static int score;
     public int Score { get; private set; }
 
     public TextMeshProUGUI scoreText;
@@ -19,39 +18,25 @@ public class GameManager : MonoBehaviour
     public GameObject titleScreen;
 
     public Button restartButton;
-    public Button mainMenu;
 
     public HealthBar healthBar;
 
     public bool isGameActive;
 
-    // Start is called before the first frame update
     void Awake()
     {
         Instance = this;
     }
 
-    // Update is called once per frame
     void Update()
     {
         UpdateScore(0);
-        
     }
 
     public void UpdateScore(int ScoreToAdd)
     {
         Score += ScoreToAdd;
-        scoreText.text = ("Score: " + Score); 
-    }
-
-    public void UpdateHealth()
-    {
-        PlayerController player = GameObject.Find("Player").GetComponent<PlayerController>();
-        if(gameObject.CompareTag("Animal"))
-        {
-            Destroy(gameObject);
-            player.ChangeHealth(-1);
-        }
+        scoreText.text = ("Score: " + Score);
     }
 
     public void RestartGame()
