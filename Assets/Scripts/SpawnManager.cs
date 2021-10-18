@@ -14,18 +14,12 @@ public class SpawnManager : MonoBehaviour
 
     public GameObject[] animalPrefab;
     public GameManager gameManager;
-    
-    // Start is called before the first frame update
+
     private void Start()
-    {
+    {//ABSTRACTION
         InvokeRepeating("SpawnUpAnimal", startDelay, spawnInterval);
         InvokeRepeating("SpawnRightAnimal", startDelay, spawnInterval);
         InvokeRepeating("SpawnLeftAnimal", startDelay, spawnInterval);
-    }
-
-    private void Update()
-    {
-        
     }
 
     private void SpawnUpAnimal()
@@ -37,7 +31,6 @@ public class SpawnManager : MonoBehaviour
         {
             Instantiate(animalPrefab[animalIndex], spawnPos, animalPrefab[animalIndex].transform.rotation);
         }
-        
     }
 
     private void SpawnRightAnimal()
@@ -61,7 +54,6 @@ public class SpawnManager : MonoBehaviour
         if (gameManager.isGameActive == true)
         {
             Instantiate(animalPrefab[animalIndex], spawnPos, Quaternion.Euler(Rotation));
-        }
-        
+        }       
     }
 }

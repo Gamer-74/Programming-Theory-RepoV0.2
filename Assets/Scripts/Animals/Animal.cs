@@ -7,7 +7,7 @@ public class Animal : MonoBehaviour
     public GameManager gameManager;
 
     private int m_ScoreValue = 30;
-    private float m_Speed;
+    private float m_Speed = 14;
 
     void Start()
     {

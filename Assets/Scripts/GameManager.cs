@@ -8,7 +8,6 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
-    //public static int score;
     public int Score { get; private set; }
 
     public TextMeshProUGUI scoreText;
@@ -25,23 +24,20 @@ public class GameManager : MonoBehaviour
 
     public bool isGameActive;
 
-    // Start is called before the first frame update
     void Awake()
     {
         Instance = this;
     }
 
-    // Update is called once per frame
     void Update()
     {
         UpdateScore(0);
-        
     }
 
     public void UpdateScore(int ScoreToAdd)
     {
         Score += ScoreToAdd;
-        scoreText.text = ("Score: " + Score); 
+        scoreText.text = ("Score: " + Score);
     }
 
     public void UpdateHealth()
