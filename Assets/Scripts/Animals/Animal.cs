@@ -23,7 +23,6 @@ public class Animal : MonoBehaviour
     public virtual void Speed()
     {
         float speed = m_Speed;
-        transform.Translate(Vector3.forward * speed * Time.deltaTime);
     }
 
     public virtual void ScoreToAdd(int ScoreValue)
