@@ -5,9 +5,10 @@ using UnityEngine;
 public class Animal : MonoBehaviour
 {
     public GameManager gameManager;
+    public GameObject nameScoreManager;
 
-    private int m_ScoreValue = 30;
-    private float m_Speed = 14;
+    private int m_ScoreValue;
+    private float m_Speed;
 
     void Start()
     {
@@ -16,8 +17,7 @@ public class Animal : MonoBehaviour
 
     void Update()
     {
-        Speed();
-        ScoreToAdd(m_ScoreValue);
+        
     }
 
     public virtual void Speed()
@@ -25,8 +25,9 @@ public class Animal : MonoBehaviour
         float speed = m_Speed;
     }
 
-    public virtual void ScoreToAdd(int ScoreValue)
+    public virtual void AddScore(string name, int ScoreValue)
     {
         m_ScoreValue = ScoreValue;
+        name = PlayerPrefs.GetString("UsersCount");
     }
 }

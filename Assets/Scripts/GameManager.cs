@@ -7,21 +7,18 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager Instance { get; private set; }
-    public int Score { get; private set; }
-
+    public static GameManager Instance { get;  set; }
+    public int Score { get;  set; }
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI livesText;
     public TextMeshProUGUI gameOverText;
     public TextMeshProUGUI finalScoreText;
-
     public GameObject titleScreen;
-
+    public GameObject nameScoreManager;
+    public GameObject backGroundMusic;
     public Button restartButton;
     public Button mainMenu;
-
     public HealthBar healthBar;
-
     public bool isGameActive;
 
     void Awake()
@@ -31,13 +28,14 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        UpdateScore(0);
+        UpdateScore(name, 0);
     }
 
-    public void UpdateScore(int ScoreToAdd)
+    public void UpdateScore(string name, int ScoreToAdd)
     {
         Score += ScoreToAdd;
-        scoreText.text = ("Score: " + Score);
+        name = PlayerPrefs.GetString("UsersCount");
+        scoreText.text = $" {name} {Score}";
     }
 
     public void UpdateHealth()
@@ -59,12 +57,13 @@ public class GameManager : MonoBehaviour
     {
         PlayerController player = GameObject.Find("Player").GetComponent<PlayerController>();
         player.gameObject.GetComponent<PlayerController>().enabled = false;
-        player.dirtParticle.Stop();
 
         scoreText.gameObject.SetActive(false);
         FinalScore();
         titleScreen.gameObject.SetActive(true);
+        player.dirtParticle.Stop();
         isGameActive = false;
+        backGroundMusic.gameObject.SetActive(false);
     }
 
     public void StartGame()
@@ -76,12 +75,24 @@ public class GameManager : MonoBehaviour
 
     public void MainMenu()
     {
+        if(Score > PlayerPrefs.GetInt("FinalScores"))
+        {
+            PlayerPrefs.SetString("FinalScores", finalScoreText.text);
+        }
         SceneManager.LoadScene(0);
     }
 
     public void FinalScore()
     {
         finalScoreText.text = Score.ToString();
-        finalScoreText.text = ("Your Score: " + Score);
+        name = PlayerPrefs.GetString("UsersCount");
+        finalScoreText.text = $" {name} {Score}";
+    }
+
+    public string SaveFinalScore(string theFinal)
+    {
+        PlayerPrefs.SetString("theFinal", finalScoreText.text);
+        theFinal = finalScoreText.text;
+        return theFinal;
     }
 }

@@ -8,9 +8,7 @@ public class PlayerNames : MonoBehaviour
 {
     public InputField playerNames;
     public GameObject inputField;
-
     public static string theName { get; private set; }
-
     private int usersCount;
     private string[] userNames;
     
@@ -76,7 +74,6 @@ public class PlayerNames : MonoBehaviour
 
             theName = data.theName;
         }
-        
         PlayerPrefs.GetString("User" + usersCount, playerNames.text);
         usersCount++;
         PlayerPrefs.GetInt("UsersCount", usersCount);

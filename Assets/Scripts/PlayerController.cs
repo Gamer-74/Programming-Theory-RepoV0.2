@@ -9,16 +9,12 @@ public class PlayerController : MonoBehaviour
     public GameObject projectilePrefab;
     public HealthBar healthBar;
     public GameManager gameManager;
-
     public ParticleSystem dirtParticle;
-    
     public AudioClip throwCarrot;
     public AudioClip takeDamage;
 
     private AudioSource audioSource;
-    
     private Rigidbody playerRb;
-
     private float speed = 20;
     private float horizontalInput;
     private float verticalInput;
@@ -30,10 +26,6 @@ public class PlayerController : MonoBehaviour
     private int maxHealth = 10;
     private int currentHealth;
     private int dead = 0;
-
-    public float timeInvincible = 2.5f;
-    bool isInvincible;
-    float invincibleTimer;
 
     void Start()
     {
@@ -93,8 +85,6 @@ public class PlayerController : MonoBehaviour
 
         if(currentHealth <= dead)
         {
-            isInvincible = true;
-            invincibleTimer = timeInvincible;
             gameManager.isGameActive = false;
             gameManager.GameOver();
             dirtParticle.Stop();

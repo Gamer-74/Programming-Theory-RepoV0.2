@@ -14,14 +14,15 @@ public class Stag : Animal
 
     void Update()
     {
-        ScoreToAdd(m_SScore);
         Speed();
     }
 //Override Method
-    public override void ScoreToAdd(int ScoreValue)
+    public override void AddScore(string name, int ScoreValue)
     {
-        base.ScoreToAdd(ScoreValue);
-        ScoreValue = m_SScore;
+        base.AddScore(name, ScoreValue);
+        name = PlayerPrefs.GetString("UsersCount");
+        m_SScore = ScoreValue;
+        gameManager.UpdateScore(name, m_SScore);
     }
 
     public override void Speed()
@@ -37,13 +38,12 @@ public class Stag : Animal
         if (other.gameObject.CompareTag("Player"))
         {
             Destroy(gameObject);
-
             player.ChangeHealth(-1);
         }
         else if(other.gameObject)
         {
             Destroy(gameObject);
-            gameManager.UpdateScore(m_SScore);
+            AddScore(name, m_SScore);
         }
     }
 }

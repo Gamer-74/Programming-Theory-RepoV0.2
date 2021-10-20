@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 8758097853945909423}
   m_Layer: 0
   m_Name: ProjectileCarrot
-  m_TagString: Untagged
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100,9 +100,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 50
-  Stag: {fileID: 3718967868185387547, guid: f7821fd1edad53843a1812b427821b3c, type: 3}
-  Doe: {fileID: 7417908929487388847, guid: dbaa843d0c995e4438107ceed3e25be6, type: 3}
-  Moose: {fileID: 5091411216659675183, guid: 698e46b3d81c41d47bebee5aa63470a5, type: 3}
 --- !u!114 &-2591531465808237899
 MonoBehaviour:
   m_ObjectHideFlags: 0

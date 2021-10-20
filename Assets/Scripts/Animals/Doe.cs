@@ -14,14 +14,15 @@ public class Doe : Animal
 
     void Update()
     {
-        ScoreToAdd(m_DScore);
         Speed();
     }
 
-    public override void ScoreToAdd(int ScoreValue)
+    public override void AddScore(string name, int ScoreValue)
     {
-        base.ScoreToAdd(ScoreValue);
-        ScoreValue = m_DScore;
+        base.AddScore(name, ScoreValue);
+        name = PlayerPrefs.GetString("UsersCount");
+        m_DScore = ScoreValue;
+        gameManager.UpdateScore(name, m_DScore);
     }
 
     //Override Method
@@ -43,7 +44,7 @@ public class Doe : Animal
         else if (other.gameObject)
         {
             Destroy(gameObject);
-            gameManager.UpdateScore(m_DScore);
+            AddScore(name, m_DScore);
         }
     }
 }

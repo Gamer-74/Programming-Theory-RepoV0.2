@@ -14,14 +14,15 @@ public class Moose : Animal
 
     void Update()
     {  
-        ScoreToAdd(m_MScore);
         Speed();
     }
 //Override Method
-    public override void ScoreToAdd(int ScoreValue)
+    public override void AddScore(string name, int ScoreValue)
     {
-        base.ScoreToAdd(ScoreValue);
-        ScoreValue += m_MScore;
+        base.AddScore(name, ScoreValue);
+        name = PlayerPrefs.GetString("UsersCount");
+        m_MScore = ScoreValue;
+        gameManager.UpdateScore(name, m_MScore);
     }
 
     public override void Speed()
@@ -37,13 +38,12 @@ public class Moose : Animal
         if (other.gameObject.CompareTag("Player"))
         {
             Destroy(gameObject);
-
             player.ChangeHealth(-1);
         }
-        else if (other.gameObject)
+        else if(other.gameObject)
         {
             Destroy(gameObject);
-            gameManager.UpdateScore(m_MScore);
+            AddScore(name, m_MScore);
         }
     }
 }
