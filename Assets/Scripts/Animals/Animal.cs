@@ -15,11 +15,6 @@ public class Animal : MonoBehaviour
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
-    void Update()
-    {
-        
-    }
-
     public virtual void Speed()
     {
         float speed = m_Speed;
