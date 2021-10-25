@@ -50,7 +50,6 @@ public class PlayerNames : MonoBehaviour
         public string theName;
     }
           
-
     public void SaveUserName()
     {
         SaveData data = new SaveData();

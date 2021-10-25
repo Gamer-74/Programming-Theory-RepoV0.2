@@ -4,9 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
 
 public class GameMenu : MonoBehaviour
 {
@@ -28,8 +25,7 @@ public class GameMenu : MonoBehaviour
     public void LeaderBoard()
     {
         titleMenu.gameObject.SetActive(false);
-        leadersBoard.gameObject.SetActive(true);
-        
+        leadersBoard.gameObject.SetActive(true);   
     }
 
     public void BackMenu()
@@ -40,10 +36,6 @@ public class GameMenu : MonoBehaviour
 
     public void QuitGame()
     {
-#if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-#else
-Application.Quit;
-#endif
+        Application.Quit();
     }
 }
